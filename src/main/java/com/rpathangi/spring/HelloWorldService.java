@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldService {
 
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public HelloWorldResponse index() {
+    public HelloWorldResponse sayHello() {
         return new HelloWorldResponse("Hello World!");
     }
 }
