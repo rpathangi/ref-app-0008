@@ -1,10 +1,10 @@
 # ref-app-0008
 
-OS: Ubuntu17.04
+OS Used for Development: Ubuntu17.04
+IDE Used for Development: IntelliJ
 Java: OpenJDK1.8
-Spring: 
 
-Note: This application wil not work in Google App Engine at the moment because of java version 8 is not supported in google app engine. 
+Note: This application uses App Engine standard environment which is not compatible with java version 8. 
 However, this code can be downloaded and run locally.
 
 # Features
