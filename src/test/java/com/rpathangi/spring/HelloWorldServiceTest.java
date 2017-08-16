@@ -46,6 +46,7 @@ public class HelloWorldServiceTest {
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
         System.out.println(result.getResponse());
+
         String expected = "{greeting: \"Hello World!\"}";
 
         JSONAssert.assertEquals(expected, result.getResponse()

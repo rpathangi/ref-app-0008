@@ -8,8 +8,8 @@ With IntelliJ you could get the following error
 
 Caused by: org.springframework.context.ApplicationContextException: Unable to start EmbeddedWebApplicationContext due to missing EmbeddedServletContainerFactory bean.
 
-Fix:
+# Resolution # 1
 
-Most likely you provided an incorrect argument for Application.clas.
+Most likely you provided an incorrect argument - Application.class.
 
 SpringApplication.run(Application.class, args); 
