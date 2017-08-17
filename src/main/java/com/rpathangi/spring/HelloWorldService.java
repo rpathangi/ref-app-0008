@@ -1,5 +1,7 @@
 package com.rpathangi.spring;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,12 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sayHello")
 @RestController
 public class HelloWorldService {
+    private Logger logger = LoggerFactory.getLogger(HelloWorldService.class);
 
     @Value("${greeting}")
     private String greeting;
 
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public HelloWorldResponse sayHello() {
+        logger.info("Info: sayHello()");
         return new HelloWorldResponse(greeting);
     }
 }
