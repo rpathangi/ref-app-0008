@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Configuration
 @ComponentScan(basePackages = { "com.rpathangi.spring" })
 @PropertySource("classpath:application.properties")
-@RequestMapping("/sayHello")
+@RequestMapping("/greeting")
 @RestController
 public class HelloWorldService {
     private Logger logger = LoggerFactory.getLogger(HelloWorldService.class);
@@ -22,7 +22,7 @@ public class HelloWorldService {
     @Value("${greeting}")
     private String greeting;
 
-    @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/english", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public HelloWorldResponse sayHello() {
         logger.info("Info: sayHello()");
         return new HelloWorldResponse(greeting);

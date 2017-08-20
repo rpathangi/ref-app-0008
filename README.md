@@ -8,6 +8,7 @@ Note: This application uses App Engine standard environment which is not compati
 However, this code can be downloaded and run locally.
 
 # Features
+20170719 - Introduce 2 level paths, create artifact.
 20170815 - Read properties from an external file.
 20170813 - Integrate with GoogleAppEngine.
 20170810 - Expose a basic rest endpoint using spring boot.
@@ -23,3 +24,7 @@ Caused by: org.springframework.context.ApplicationContextException: Unable to st
 Most likely you provided an incorrect argument - Application.class.
 
 SpringApplication.run(Application.class, args); 
+
+# FAQ
+
+To create a package: Just run mvn clean 

@@ -40,7 +40,7 @@ public class HelloWorldServiceTest {
                 helloWorldService.sayHello()).thenReturn(hwr);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
-                "/sayHello").accept(
+                "/greeting/english").accept(
                 MediaType.APPLICATION_JSON);
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
