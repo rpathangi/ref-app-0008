@@ -12,6 +12,7 @@ However, this code can be downloaded and run locally.
 20170815 - Read properties from an external file.
 20170813 - Integrate with GoogleAppEngine.
 20170810 - Expose a basic rest endpoint using spring boot.
+20170828 - Check In Dockerfile.
 
 # Issue # 1
 
@@ -28,3 +29,8 @@ SpringApplication.run(Application.class, args);
 # FAQ
 
 To create a package: Just run mvn clean 
+
+Universal Recommender Source: 
+    https://predictionio.incubator.apache.org/install/install-sourcecode/
+    https://hub.docker.com/r/g2crowd/apache-pio-full/~/dockerfile/
+    
