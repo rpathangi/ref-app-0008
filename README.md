@@ -4,8 +4,7 @@ OS Used for Development: Ubuntu17.04
 IDE Used for Development: IntelliJ
 Java: OpenJDK1.8
 
-Note: This application uses App Engine standard environment which is not compatible with java version 8. 
-However, this code can be downloaded and run locally.
+Application deployed on google cloud at https://ref-app-0008.appspot.com/greeting/english
 
 # Features
 20170719 - Introduce 2 level paths, create artifact.
