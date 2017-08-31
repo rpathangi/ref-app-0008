@@ -23,10 +23,10 @@
 <configuration>
   <property>
     <name>hbase.rootdir</name>
-    <value>file:///home/root/pio/vendors/hbase-1.2.5/data</value>
+    <value>file:///app/pio/vendors/hbase-1.2.5/data</value>
   </property>
   <property>
     <name>hbase.zookeeper.property.dataDir</name>
-    <value>/home/root/pio/vendors/hbase-1.2.5/zookeeper</value>
+    <value>/app/pio/vendors/hbase-1.2.5/zookeeper</value>
   </property>
 </configuration>

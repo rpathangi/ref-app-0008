@@ -14,4 +14,4 @@ pio status
 
 cd /app/ndscheduler
 
-make simple >> /logs/"$(date +"ndscheduler_%Y%m%d%H%M%S").log"
+nohup make simple >> /logs/"$(date +"ndscheduler_%Y%m%d%H%M%S").log" &

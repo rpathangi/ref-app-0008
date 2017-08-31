@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 MAINTAINER Ram Pathangi "rpathangi@gmail.com"
 
-EXPOSE 8000 8080
+EXPOSE 8000 8080 8888
 
 ENV BASEDIR /app
 
