@@ -10,7 +10,7 @@ RUN mkdir $BASEDIR
 
 WORKDIR $BASEDIR
 
-RUN apt-get update && apt-get install -y wget git vim curl python python-pip python-setuptools software-properties-common openjdk-8-jdk openjdk-8-jre libjansi-java
+RUN apt-get update && apt-get install -y wget git vim curl python python-pip python-setuptools software-properties-common openjdk-8-jdk openjdk-8-jre libjansi-java ruby virtualenv && gem install tiller
 
 RUN pip install --upgrade pip
 
@@ -62,9 +62,23 @@ RUN tar zxvf PredictionIO-0.11.0-incubating.tar.gz
 
 RUN mv PredictionIO-0.11.0-incubating/* ../.
 
+#Start Batch Setup
+
+RUN mkdir /logs
+
+WORKDIR /app
+
+RUN git clone https://github.com/Nextdoor/ndscheduler.git
+
+#Finish Batch Setup
+
 WORKDIR $PIO_HOME
 
 RUN rm -rf $PIO_HOME/deleteme
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
+COPY log4j.properties $PIO_HOME/conf/log4j.properties
 
 COPY hbase-site.xml vendors/hbase-1.2.5/conf/hbase-site.xml
 
@@ -72,14 +86,22 @@ COPY pio-env.sh $PIO_HOME/conf/pio-env.sh
 
 COPY start.sh $PIO_HOME/start.sh
 
+RUN mkdir $PIO_HOME/conf/templates
+
+COPY common.yaml $PIO_HOME/conf/common.yaml
+
+COPY pio-config.erb $PIO_HOME/conf/templates/pio-config.erb
+
+RUN touch $PIO_HOME/conf/pio_config_tiller.sh
+
+RUN chmod 755 $PIO_HOME/conf/pio_config_tiller.sh
+
 RUN chmod 755 $PIO_HOME/start.sh
 
 WORKDIR $PIO_HOME/bin
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-
-ENV PIO_HOME /app/pio
-
 ENV PATH $PATH:$PIO_HOME/bin
+
+WORKDIR $PIO_HOME
 
 CMD ["bash", "-c", "$PIO_HOME/start.sh"]

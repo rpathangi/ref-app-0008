@@ -1,0 +1,34 @@
+data_sources: [ 'defaults', 'file', 'environment' ]
+template_sources: [ 'file' ]
+
+default_environment: dev
+
+environment:
+  prefix: ''
+  lowercase: false
+
+defaults:
+
+  global:
+      driver_memory: 9g
+      
+  pio-config.erb:
+    target: /app/pio/conf/pio_config_tiller.sh
+
+environments:
+
+  dev:
+    global_values:
+      driver_memory: 9g
+
+    pio-config.erb:
+      config:
+        executor_memory: 9g
+
+  dev:
+    global_values:
+      driver_memory: 9g
+
+    pio-config.erb:
+      config:
+        executor_memory: 9g
