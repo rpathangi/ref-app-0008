@@ -104,4 +104,12 @@ ENV PATH $PATH:$PIO_HOME/bin
 
 WORKDIR $PIO_HOME
 
+RUN git clone https://github.com/apache/incubator-predictionio-template-recommender.git MyRecommendation
+
+COPY engine.json $PIO_HOME/MyRecommendation/engine.json
+
+RUN mkdir /root/.sbt/launchers/0.13.15
+
+RUN wget -O /root/.sbt/launchers/0.13.15/sbt-launch.jar http://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.15/sbt-launch.jar
+
 CMD ["bash", "-c", "$PIO_HOME/start.sh"]
